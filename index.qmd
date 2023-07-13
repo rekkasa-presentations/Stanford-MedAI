@@ -9,8 +9,27 @@ format:
     auto-stretch: true
 fig-align: center
 css: style.css
-controls: true
 ---
+
+# Literature review
+
+\
+
+\
+
+::: aside
+
+:::{style="font-size: 69%;"}
+
+*Rekkas, A., Paulus, J.K., Raman, G. et al. Predictive approaches to
+heterogeneous treatment effects: a scoping review. BMC Med Res Methodol 20, 264
+(2020). https://doi.org/10.1186/s12874-020-01145-1*
+
+
+
+:::
+
+:::
 
 ## Predictive approaches to HTE
 
@@ -52,7 +71,26 @@ $$
 
 :::
 
-## PATH Statement
+# Framework
+
+\
+
+\
+
+::: aside
+
+:::{style="font-size: 69%;"}
+
+*Rekkas, A., van Klaveren, D., Ryan, P.B. et al. A standardized framework for
+risk-based assessment of treatment effect heterogeneity in observational
+healthcare databases. npj Digit. Med. 6, 58 (2023).
+https://doi.org/10.1038/s41746-023-00794-y*
+
+:::
+
+:::
+
+## Framework - PATH Statement
 ::: {layout-ncol=2}
 
 ![](figures/path.png)
@@ -60,7 +98,7 @@ $$
 ![](figures/path_ene.png)
 :::
 
-## OMOP
+## Framework - OMOP
 
 ![](figures/omop-cdm.png)
 
@@ -72,7 +110,7 @@ $$
 
 
 
-## Framework for observational data
+## Framework - Steps
 ![](figures/framework_steps.png){fig-align="center"}
 
 :::{style="font-size: 50%;"}
@@ -81,12 +119,17 @@ $$
 
 :::
 
-## Problem definition
+## Framework - Problem definition
 
+
+
+:::{style="font-size: 70%;"}
 
 > Compare the effect of thiazides or thiazide-like diuretics (THZ) to the effect
 > of angiotensin converting enzyme (ACE) inhibitors in patients with established
 > hypertension with respect to 12 outcomes
+
+:::
 
 :::{style="font-size: 70%;"}
 
@@ -104,7 +147,7 @@ hyponatremia, hypotension, angioedema
 :::
 
 
-## Databases
+## Framework - Databases
 
 :::{style="font-size: 70%;"}
 
@@ -133,11 +176,11 @@ Medicare supplemental coverage through employer-sponsored plans.
 
 
 
-## Study populations
+## Framework - Study populations
 
 ![](figures/table1.png)
 
-## Prediction step
+## Framework - Prediction step
 
 - Separate acute MI risk prediction models fitted within each database
 - Risk strata defined: below 1%, between 1% and 1.5%, above 1.5%
@@ -156,7 +199,7 @@ Medicare supplemental coverage through employer-sponsored plans.
 :::
 
 
-## Estimation step
+## Framework - Estimation step
 
 :::{.panel-tabset}
 
@@ -172,7 +215,7 @@ Medicare supplemental coverage through employer-sponsored plans.
 
 :::
 
-## Relative treatment effects
+## Framework - Relative effects
 
 ::: {.panel-tabset}
 
@@ -190,7 +233,7 @@ Medicare supplemental coverage through employer-sponsored plans.
 
 :::
 
-## Absolute treatment effects
+## Framework - Absolute effects
 
 ::: {.panel-tabset}
 
@@ -203,7 +246,7 @@ Medicare supplemental coverage through employer-sponsored plans.
 ![](figures/absolute-safety.png){width=55%}
 :::
 
-## Interpretation
+## Framework - Interpretation
 
 \
 
@@ -214,13 +257,46 @@ high-risk patients.
 risk groups.
 - Cough risk increase with ACE inhibitors.
 
+## Framework - Links
+
+:::{style="font-size: 69%;"}
+
+\
+
+Publication: [https://doi.org/10.1038/s41746-023-00794-y](https://doi.org/10.1038/s41746-023-00794-y)
+
+\
+
+Code: [https://github.com/ohdsi/RiskStratifiedEstimation](https://github.com/ohdsi/RiskStratifiedEstimation)
+
+:::
+
+
+# Simulation study
+
+\
+
+\
+
+::: aside
+
+:::{style="font-size: 69%;"}
+
+*Rekkas, A., Rijnbeek, P.R., Kent, D.M. et al. Estimating individualized
+treatment effects from randomized controlled trials: a simulation study to
+compare risk-based approaches. BMC Med Res Methodol 23, 74 (2023).
+https://doi.org/10.1186/s12874-023-01889-6*
+
+:::
+
+:::
 
 ## Simulation study
 
 \
 
 > **Aim**: Compare different risk-based models for the prediction of
-> individualized treatment effects.
+> individualized treatment effects in RCT setting.
 
 \
 
@@ -305,7 +381,7 @@ treatment arm, so that $P(Y(1)=1\given X=x) = \text{expit}(lp_1)$
 
 \
 
-Introduced treatment-related harms (absent, moderate, strong, positive) such that
+Introduced treatment-related harms (absent, moderate, strong, negative) such that
 
 $$
 P(Y(1)=1|X=x) = \text{expit}(lp_1) + \text{harm}
@@ -446,5 +522,23 @@ Results: [https://mi-erasmusmc.shinyapps.io/HteSimulationRCT](https://mi-erasmus
 \
 
 Code: [https://github.com/mi-erasmusmc/HteSimulationRCT](https://github.com/mi-erasmusmc/HteSimulationRCT)
+
+:::
+
+
+# Thank you!
+
+\
+
+\
+
+::: aside
+
+:::{style="font-size: 69%;"}
+
+Email: a.rekkas@erasmusmc.nl
+
+
+:::
 
 :::

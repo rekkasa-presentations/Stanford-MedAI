@@ -339,6 +339,19 @@ Alexandros Rekkas
 </div>
 
 </section>
+<section>
+<section id="literature-review" class="title-slide slide level1 center">
+<h1>Literature review</h1>
+<p><br>
+</p>
+<p><br>
+</p>
+
+<aside><div>
+<div style="font-size: 69%;">
+<p><em>Rekkas, A., Paulus, J.K., Raman, G. et al.&nbsp;Predictive approaches to heterogeneous treatment effects: a scoping review. BMC Med Res Methodol 20, 264 (2020). https://doi.org/10.1186/s12874-020-01145-1</em></p>
+</div>
+</div></aside></section>
 <section id="predictive-approaches-to-hte" class="slide level2">
 <h2>Predictive approaches to HTE</h2>
 <div class="panel-tabset">
@@ -369,9 +382,22 @@ T_{\text{optimal}} = \text{argmax}_TE\Big\{ E\{ y\mid x_1,\dots,x_p,T(x_1,\dots,
 </div>
 </div>
 </div>
-</section>
-<section id="path-statement" class="slide level2">
-<h2>PATH Statement</h2>
+</section></section>
+<section>
+<section id="framework" class="title-slide slide level1 center">
+<h1>Framework</h1>
+<p><br>
+</p>
+<p><br>
+</p>
+
+<aside><div>
+<div style="font-size: 69%;">
+<p><em>Rekkas, A., van Klaveren, D., Ryan, P.B. et al.&nbsp;A standardized framework for risk-based assessment of treatment effect heterogeneity in observational healthcare databases. npj Digit. Med. 6, 58 (2023). https://doi.org/10.1038/s41746-023-00794-y</em></p>
+</div>
+</div></aside></section>
+<section id="framework---path-statement" class="slide level2">
+<h2>Framework - PATH Statement</h2>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
@@ -383,25 +409,27 @@ T_{\text{optimal}} = \text{argmax}_TE\Big\{ E\{ y\mid x_1,\dots,x_p,T(x_1,\dots,
 </div>
 </div>
 </section>
-<section id="omop" class="slide level2">
-<h2>OMOP</h2>
+<section id="framework---omop" class="slide level2">
+<h2>Framework - OMOP</h2>
 
 <img data-src="figures/omop-cdm.png" class="r-stretch"><div style="font-size: 50%;">
 <p><em>OHDSI: Chapter 4. The Common Data Model. In: The Book of OHDSI: Observational Health Data Sciences and Informatics. edn.: OHDSI; 2020.</em></p>
 </div>
 </section>
-<section id="framework-for-observational-data" class="slide level2">
-<h2>Framework for observational data</h2>
+<section id="framework---steps" class="slide level2">
+<h2>Framework - Steps</h2>
 
 <img data-src="figures/framework_steps.png" class="r-stretch quarto-figure-center"><div style="font-size: 50%;">
 <p><em>Rekkas, A., van Klaveren, D., Ryan, P.B. et al.&nbsp;A standardized framework for risk-based assessment of treatment effect heterogeneity in observational healthcare databases. npj Digit. Med. 6, 58 (2023). https://doi.org/10.1038/s41746-023-00794-y</em></p>
 </div>
 </section>
-<section id="problem-definition" class="slide level2">
-<h2>Problem definition</h2>
+<section id="framework---problem-definition" class="slide level2">
+<h2>Framework - Problem definition</h2>
+<div style="font-size: 70%;">
 <blockquote>
 <p>Compare the effect of thiazides or thiazide-like diuretics (THZ) to the effect of angiotensin converting enzyme (ACE) inhibitors in patients with established hypertension with respect to 12 outcomes</p>
 </blockquote>
+</div>
 <div style="font-size: 70%;">
 <p><br>
 </p>
@@ -411,8 +439,8 @@ T_{\text{optimal}} = \text{argmax}_TE\Big\{ E\{ y\mid x_1,\dots,x_p,T(x_1,\dots,
 <p><strong>Safety outcomes</strong>: acute renal failure, kidney disease, cough, hyperkalemia, hypokalemia, gastrointestinal bleeding, hyponatremia, hypotension, angioedema</p>
 </div>
 </section>
-<section id="databases" class="slide level2">
-<h2>Databases</h2>
+<section id="framework---databases" class="slide level2">
+<h2>Framework - Databases</h2>
 <div style="font-size: 70%;">
 <ul>
 <li><strong>IBM® MarketScan® Commercial Database (CCAE)</strong>: includes health insurance claims across the continuum of care (e.g., inpatient, outpatient, outpatient pharmacy, carve-out behavioral healthcare) as well as enrollment data from large employers and health plans across the United States who provide private healthcare coverage for more than 157 million employees, their spouses, and dependents.</li>
@@ -429,12 +457,12 @@ T_{\text{optimal}} = \text{argmax}_TE\Big\{ E\{ y\mid x_1,\dots,x_p,T(x_1,\dots,
 </ul>
 </div>
 </section>
-<section id="study-populations" class="slide level2">
-<h2>Study populations</h2>
+<section id="framework---study-populations" class="slide level2">
+<h2>Framework - Study populations</h2>
 
 <img data-src="figures/table1.png" class="r-stretch"></section>
-<section id="prediction-step" class="slide level2">
-<h2>Prediction step</h2>
+<section id="framework---prediction-step" class="slide level2">
+<h2>Framework - Prediction step</h2>
 <ul>
 <li>Separate acute MI risk prediction models fitted within each database</li>
 <li>Risk strata defined: below 1%, between 1% and 1.5%, above 1.5%</li>
@@ -485,8 +513,8 @@ T_{\text{optimal}} = \text{argmax}_TE\Big\{ E\{ y\mid x_1,\dots,x_p,T(x_1,\dots,
 </table>
 </div>
 </section>
-<section id="estimation-step" class="slide level2">
-<h2>Estimation step</h2>
+<section id="framework---estimation-step" class="slide level2">
+<h2>Framework - Estimation step</h2>
 <div class="panel-tabset">
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Pref. scores</a></li><li><a href="#tabset-2-2">Covariate balance</a></li><li><a href="#tabset-2-3">Negative controls</a></li></ul>
 <div class="tab-content">
@@ -502,8 +530,8 @@ T_{\text{optimal}} = \text{argmax}_TE\Big\{ E\{ y\mid x_1,\dots,x_p,T(x_1,\dots,
 </div>
 </div>
 </section>
-<section id="relative-treatment-effects" class="slide level2">
-<h2>Relative treatment effects</h2>
+<section id="framework---relative-effects" class="slide level2">
+<h2>Framework - Relative effects</h2>
 <div class="panel-tabset">
 <ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Overall</a></li><li><a href="#tabset-3-2">Main outcomes</a></li><li><a href="#tabset-3-3">Safety outcomes</a></li></ul>
 <div class="tab-content">
@@ -519,8 +547,8 @@ T_{\text{optimal}} = \text{argmax}_TE\Big\{ E\{ y\mid x_1,\dots,x_p,T(x_1,\dots,
 </div>
 </div>
 </section>
-<section id="absolute-treatment-effects" class="slide level2">
-<h2>Absolute treatment effects</h2>
+<section id="framework---absolute-effects" class="slide level2">
+<h2>Framework - Absolute effects</h2>
 <div class="panel-tabset">
 <ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">Main outcomes</a></li><li><a href="#tabset-4-2">Safety outcomes</a></li></ul>
 <div class="tab-content">
@@ -533,8 +561,8 @@ T_{\text{optimal}} = \text{argmax}_TE\Big\{ E\{ y\mid x_1,\dots,x_p,T(x_1,\dots,
 </div>
 </div>
 </section>
-<section id="interpretation" class="slide level2">
-<h2>Interpretation</h2>
+<section id="framework---interpretation" class="slide level2">
+<h2>Framework - Interpretation</h2>
 <p><br>
 </p>
 <ul>
@@ -544,18 +572,42 @@ T_{\text{optimal}} = \text{argmax}_TE\Big\{ E\{ y\mid x_1,\dots,x_p,T(x_1,\dots,
 <li>Cough risk increase with ACE inhibitors.</li>
 </ul>
 </section>
-<section id="simulation-study" class="slide level2">
+<section id="framework---links" class="slide level2">
+<h2>Framework - Links</h2>
+<div style="font-size: 69%;">
+<p><br>
+</p>
+<p>Publication: <a href="https://doi.org/10.1038/s41746-023-00794-y">https://doi.org/10.1038/s41746-023-00794-y</a></p>
+<p><br>
+</p>
+<p>Code: <a href="https://github.com/ohdsi/RiskStratifiedEstimation">https://github.com/ohdsi/RiskStratifiedEstimation</a></p>
+</div>
+</section></section>
+<section>
+<section id="simulation-study" class="title-slide slide level1 center">
+<h1>Simulation study</h1>
+<p><br>
+</p>
+<p><br>
+</p>
+
+<aside><div>
+<div style="font-size: 69%;">
+<p><em>Rekkas, A., Rijnbeek, P.R., Kent, D.M. et al.&nbsp;Estimating individualized treatment effects from randomized controlled trials: a simulation study to compare risk-based approaches. BMC Med Res Methodol 23, 74 (2023). https://doi.org/10.1186/s12874-023-01889-6</em></p>
+</div>
+</div></aside></section>
+<section id="simulation-study-1" class="slide level2">
 <h2>Simulation study</h2>
 <p><br>
 </p>
 <blockquote>
-<p><strong>Aim</strong>: Compare different risk-based models for the prediction of individualized treatment effects.</p>
+<p><strong>Aim</strong>: Compare different risk-based models for the prediction of individualized treatment effects in RCT setting.</p>
 </blockquote>
 <p><br>
 </p>
 <p>We observe RCT data <span class="math inline">\((Z, X, Y)\)</span>, where for each patient <span class="math inline">\(Z_i= 0, 1\)</span> is the treatment status, <span class="math inline">\(Y_i = 0, 1\)</span> is the observed outcome and <span class="math inline">\(X_i\)</span> is a set of measured covariates.</p>
 </section>
-<section id="simulation-study-1" class="slide level2">
+<section id="simulation-study-2" class="slide level2">
 <h2>Simulation study</h2>
 <p><br>
 </p>
@@ -567,7 +619,7 @@ T_{\text{optimal}} = \text{argmax}_TE\Big\{ E\{ y\mid x_1,\dots,x_p,T(x_1,\dots,
 </p>
 <p>We are interested in predicting the conditional average treatment effect (CATE), <span class="math display">\[\tau(x) = E\{Y(0) - Y(1)|X=x\}\]</span></p>
 </section>
-<section id="simulation-study-2" class="slide level2">
+<section id="simulation-study-3" class="slide level2">
 <h2>Simulation study</h2>
 <p><span class="math display">\[
 \newcommand{\indep}{\perp \!\!\! \perp}
@@ -612,7 +664,7 @@ T_{\text{optimal}} = \text{argmax}_TE\Big\{ E\{ y\mid x_1,\dots,x_p,T(x_1,\dots,
 <h2>Simulation study - Scenarios</h2>
 <p><br>
 </p>
-<p>Introduced treatment-related harms (absent, moderate, strong, positive) such that</p>
+<p>Introduced treatment-related harms (absent, moderate, strong, negative) such that</p>
 <p><span class="math display">\[
 P(Y(1)=1|X=x) = \text{expit}(lp_1) + \text{harm}
 \]</span></p>
@@ -728,11 +780,23 @@ P(Y(1)=1|X=x) = \text{expit}(lp_1) + \text{harm}
 </p>
 <p>Code: <a href="https://github.com/mi-erasmusmc/HteSimulationRCT">https://github.com/mi-erasmusmc/HteSimulationRCT</a></p>
 </div>
+</section></section>
+<section id="thank-you" class="title-slide slide level1 center">
+<h1>Thank you!</h1>
+<p><br>
+</p>
+<p><br>
+</p>
 
-<img src="figures/hds-emc.png" class="slide-logo r-stretch"><div class="footer footer-default">
+<p><img src="figures/hds-emc.png" class="slide-logo"></p>
+<div class="footer footer-default">
 
 </div>
-</section>
+<aside><div>
+<div style="font-size: 69%;">
+<p>Email: a.rekkas@erasmusmc.nl</p>
+</div>
+</div></aside></section>
     </div>
   </div>
 
@@ -757,7 +821,7 @@ P(Y(1)=1|X=x) = \text{expit}(lp_1) + \text{harm}
       // Full list of configuration options available at:
       // https://revealjs.com/config/
       Reveal.initialize({
-'controlsAuto': false,
+'controlsAuto': true,
 'previewLinksAuto': false,
 'smaller': false,
 'pdfSeparateFragments': false,
@@ -768,7 +832,7 @@ P(Y(1)=1|X=x) = \text{expit}(lp_1) + \text{harm}
 'smaller': false,
  
         // Display controls in the bottom right corner
-        controls: true,
+        controls: false,
 
         // Help the user learn the controls by providing hints, for example by
         // bouncing the down arrow when they first encounter a vertical slide
