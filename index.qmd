@@ -39,17 +39,14 @@ heterogeneous treatment effects: a scoping review. BMC Med Res Methodol 20, 264
 ### Treatment effect modeling
 
 $$
-E\{y|x_1,\dots,x_p,T\} = f(x_1,\dots,x_p, T)
+E\{Y|X=x, Z=z\} = f(x,z)
 $$
 
 
 For example,
 
 $$
-\begin{aligned}
-P(y = 1|x_1,\dots,x_p,T) = &f\big(\beta_0+\beta_1x_1+\dots+\beta_px_p+ \\
-& (\gamma_0+\gamma_1x_1+\dots\gamma_px_p)\times T\big)
-\end{aligned}
+P(Y = 1|x,z) = f(x^t\beta+\gamma xz)
 $$
 
 $$f(u) = \frac{e^u}{1 + e^u}$$
@@ -57,11 +54,14 @@ $$f(u) = \frac{e^u}{1 + e^u}$$
 ### Risk modeling
 
 $$
-E\{y|x_1,\dots,x_p,T\} = f(lp(x_1,\dots,x_p), T)
+E\{Y|X=x, Z=z\} = f(lp(x), z) 
 $$
 For example,
-$$lp(x_1,\dots,x_p) = \beta_0+\beta_1x_1+\dots+\beta_px_p$$
-and $$P(y = 1|x_1,\dots,x_p,T=0) = f(lp) = \frac{e^{lp}}{1 + e^{lp}}$$
+
+$$
+P(Y=1|X=x,Z=z) = f(lp + \gamma z + s(lp)z)
+$$
+
 
 
 :::
@@ -301,8 +301,8 @@ https://doi.org/10.1186/s12874-023-01889-6*
 
 \
 
-> **Aim**: Compare different risk-based models for the prediction of
-> individualized treatment effects in RCT setting.
+> **Aim**: Compare different risk-based regression modeling approaches 
+> for the prediction of individualized treatment effects in RCT setting
 
 \
 
@@ -343,6 +343,47 @@ can predict CATE from
 \tau(x) &= E\{Y(0)\given X=x\}-E\{Y(1)\given X=x\}\\
 &=E\{Y\given X=x, Z=0\}-E\{Y\given X=x, Z=1\}
 \end{align*}
+
+
+## Simulation study - Methods
+
+\
+
+*Constant relative treatment effect*
+
+$$P(Y=1 | X=x, Z=z;\hat{\beta}) = \text{expit}(\hat{lp}_0 + \delta_1z)$$
+
+\
+
+absolute benefit is predicted from 
+$$\tau(x;\hat{\beta}) = \text{expit}(\hat{lp}_0)-\text{expit}(\hat{lp}_0+\delta_1)$$
+
+
+## Simulation study - Methods
+
+\
+
+*Linear interaction*
+
+$$P(Y=1|X=x,Z=z;\hat{\beta})=\text{expit}(\delta_0+\delta_1z+\delta_2\hat{lp}_0+\delta_3z\hat{lp}_0)$$
+\
+
+Absolute benefit predicted from
+$$\tau(x;\hat{\beta}) = \text{expit}(\delta_0+\delta_2\hat{lp}_0)-\text{expit}\Big((\delta_0+\delta_1)+(\delta_2+\delta_3)\hat{lp}_0\Big)$$
+
+
+## Simulation study - Methods
+
+\
+
+*Restricted cubic splines*
+to relax the linearity assumption on the effect of the linear predictor. We
+considered splines with 3 (RCS-3), 4 (RCS-4) and 5 (RCS-5) knots
+
+\
+
+*Adaptive approach* using AIC
+
 
 ## Simulation study - Scenarios
 
@@ -417,45 +458,6 @@ $$
 - 20,162 patients randomized to streptokinase
 - outcome of interest: 30-day mortality (total of 2,128 events)
 
-
-## Simulation study - Methods
-
-\
-
-*Constant relative treatment effect*
-
-$$P(Y=1 | X=x, Z=z;\hat{\beta}) = \text{expit}(\hat{lp}_0 + \delta_1z)$$
-
-\
-
-absolute benefit is predicted from 
-$$\tau(x;\hat{\beta}) = \text{expit}(\hat{lp}_0)-\text{expit}(\hat{lp}_0+\delta_1)$$
-
-
-## Simulation study - Methods
-
-\
-
-*Linear interaction*
-
-$$P(Y=1|X=x,Z=z;\hat{\beta})=\text{expit}(\delta_0+\delta_1z+\delta_2\hat{lp}_0+\delta_3z\hat{lp}_0)$$
-\
-
-Absolute benefit predicted from
-$$\tau(x;\hat{\beta}) = \text{expit}(\delta_0+\delta_2\hat{lp}_0)-\text{expit}\Big((\delta_0+\delta_1)+(\delta_2+\delta_3)\hat{lp}_0\Big)$$
-
-
-## Simulation study - Methods
-
-\
-
-*Restricted cubic splines*
-to relax the linearity assumption on the effect of the linear predictor. We
-considered splines with 3 (RCS-3), 4 (RCS-4) and 5 (RCS-5) knots
-
-\
-
-*Adaptive approach* using AIC
 
 
 ## Simulation study - Results

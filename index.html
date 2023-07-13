@@ -359,21 +359,21 @@ Alexandros Rekkas
 <div class="tab-content">
 <div id="tabset-1-1">
 <p><span class="math display">\[
-E\{y|x_1,\dots,x_p,T\} = f(x_1,\dots,x_p, T)
+E\{Y|X=x, Z=z\} = f(x,z)
 \]</span></p>
 <p>For example,</p>
 <p><span class="math display">\[
-\begin{aligned}
-P(y = 1|x_1,\dots,x_p,T) = &amp;f\big(\beta_0+\beta_1x_1+\dots+\beta_px_p+ \\
-&amp; (\gamma_0+\gamma_1x_1+\dots\gamma_px_p)\times T\big)
-\end{aligned}
+P(Y = 1|x,z) = f(x^t\beta+\gamma xz)
 \]</span></p>
 <p><span class="math display">\[f(u) = \frac{e^u}{1 + e^u}\]</span></p>
 </div>
 <div id="tabset-1-2">
 <p><span class="math display">\[
-E\{y|x_1,\dots,x_p,T\} = f(lp(x_1,\dots,x_p), T)
-\]</span> For example, <span class="math display">\[lp(x_1,\dots,x_p) = \beta_0+\beta_1x_1+\dots+\beta_px_p\]</span> and <span class="math display">\[P(y = 1|x_1,\dots,x_p,T=0) = f(lp) = \frac{e^{lp}}{1 + e^{lp}}\]</span></p>
+E\{Y|X=x, Z=z\} = f(lp(x), z)
+\]</span> For example,</p>
+<p><span class="math display">\[
+P(Y=1|X=x,Z=z) = f(lp + \gamma z + s(lp)z)
+\]</span></p>
 </div>
 </div>
 </div>
@@ -607,7 +607,7 @@ E\{y|x_1,\dots,x_p,T\} = f(lp(x_1,\dots,x_p), T)
 <p><br>
 </p>
 <blockquote>
-<p><strong>Aim</strong>: Compare different risk-based models for the prediction of individualized treatment effects in RCT setting.</p>
+<p><strong>Aim</strong>: Compare different risk-based regression modeling approaches for the prediction of individualized treatment effects in RCT setting</p>
 </blockquote>
 <p><br>
 </p>
@@ -635,6 +635,34 @@ E\{y|x_1,\dots,x_p,T\} = f(lp(x_1,\dots,x_p), T)
 \tau(x) &amp;= E\{Y(0)\given X=x\}-E\{Y(1)\given X=x\}\\
 &amp;=E\{Y\given X=x, Z=0\}-E\{Y\given X=x, Z=1\}
 \end{align*}\]</span></p>
+</section>
+<section id="simulation-study---methods" class="slide level2">
+<h2>Simulation study - Methods</h2>
+<p><br>
+</p>
+<p><em>Constant relative treatment effect</em></p>
+<p><span class="math display">\[P(Y=1 | X=x, Z=z;\hat{\beta}) = \text{expit}(\hat{lp}_0 + \delta_1z)\]</span></p>
+<p><br>
+</p>
+<p>absolute benefit is predicted from <span class="math display">\[\tau(x;\hat{\beta}) = \text{expit}(\hat{lp}_0)-\text{expit}(\hat{lp}_0+\delta_1)\]</span></p>
+</section>
+<section id="simulation-study---methods-1" class="slide level2">
+<h2>Simulation study - Methods</h2>
+<p><br>
+</p>
+<p><em>Linear interaction</em></p>
+<p><span class="math display">\[P(Y=1|X=x,Z=z;\hat{\beta})=\text{expit}(\delta_0+\delta_1z+\delta_2\hat{lp}_0+\delta_3z\hat{lp}_0)\]</span><br>
+</p>
+<p>Absolute benefit predicted from <span class="math display">\[\tau(x;\hat{\beta}) = \text{expit}(\delta_0+\delta_2\hat{lp}_0)-\text{expit}\Big((\delta_0+\delta_1)+(\delta_2+\delta_3)\hat{lp}_0\Big)\]</span></p>
+</section>
+<section id="simulation-study---methods-2" class="slide level2">
+<h2>Simulation study - Methods</h2>
+<p><br>
+</p>
+<p><em>Restricted cubic splines</em> to relax the linearity assumption on the effect of the linear predictor. We considered splines with 3 (RCS-3), 4 (RCS-4) and 5 (RCS-5) knots</p>
+<p><br>
+</p>
+<p><em>Adaptive approach</em> using AIC</p>
 </section>
 <section id="simulation-study---scenarios" class="slide level2">
 <h2>Simulation study - Scenarios</h2>
@@ -694,34 +722,6 @@ P(Y(1)=1|X=x) = \text{expit}(lp_1) + \text{harm}
 <li>20,162 patients randomized to streptokinase</li>
 <li>outcome of interest: 30-day mortality (total of 2,128 events)</li>
 </ul>
-</section>
-<section id="simulation-study---methods" class="slide level2">
-<h2>Simulation study - Methods</h2>
-<p><br>
-</p>
-<p><em>Constant relative treatment effect</em></p>
-<p><span class="math display">\[P(Y=1 | X=x, Z=z;\hat{\beta}) = \text{expit}(\hat{lp}_0 + \delta_1z)\]</span></p>
-<p><br>
-</p>
-<p>absolute benefit is predicted from <span class="math display">\[\tau(x;\hat{\beta}) = \text{expit}(\hat{lp}_0)-\text{expit}(\hat{lp}_0+\delta_1)\]</span></p>
-</section>
-<section id="simulation-study---methods-1" class="slide level2">
-<h2>Simulation study - Methods</h2>
-<p><br>
-</p>
-<p><em>Linear interaction</em></p>
-<p><span class="math display">\[P(Y=1|X=x,Z=z;\hat{\beta})=\text{expit}(\delta_0+\delta_1z+\delta_2\hat{lp}_0+\delta_3z\hat{lp}_0)\]</span><br>
-</p>
-<p>Absolute benefit predicted from <span class="math display">\[\tau(x;\hat{\beta}) = \text{expit}(\delta_0+\delta_2\hat{lp}_0)-\text{expit}\Big((\delta_0+\delta_1)+(\delta_2+\delta_3)\hat{lp}_0\Big)\]</span></p>
-</section>
-<section id="simulation-study---methods-2" class="slide level2">
-<h2>Simulation study - Methods</h2>
-<p><br>
-</p>
-<p><em>Restricted cubic splines</em> to relax the linearity assumption on the effect of the linear predictor. We considered splines with 3 (RCS-3), 4 (RCS-4) and 5 (RCS-5) knots</p>
-<p><br>
-</p>
-<p><em>Adaptive approach</em> using AIC</p>
 </section>
 <section id="simulation-study---results" class="slide level2">
 <h2>Simulation study - Results</h2>
