@@ -555,6 +555,8 @@ Code: [https://github.com/mi-erasmusmc/HteSimulationRCT](https://github.com/mi-e
 
 Email: a.rekkas@erasmusmc.nl
 
+Slides: [https://rekkasa-presentations.github.io/Stanford-MedAI](https://rekkasa-presentations.github.io/Stanford-MedAI)
+
 
 :::
 
