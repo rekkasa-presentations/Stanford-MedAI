@@ -54,7 +54,7 @@ $$
 
 $$f(u) = \frac{e^u}{1 + e^u}$$
 
-### Risk-based
+### Risk modeling
 
 $$
 E\{y|x_1,\dots,x_p,T\} = f(lp(x_1,\dots,x_p), T)
@@ -63,13 +63,17 @@ For example,
 $$lp(x_1,\dots,x_p) = \beta_0+\beta_1x_1+\dots+\beta_px_p$$
 and $$P(y = 1|x_1,\dots,x_p,T=0) = f(lp) = \frac{e^{lp}}{1 + e^{lp}}$$
 
-### OTR
-
-$$
-T_{\text{optimal}} = \text{argmax}_TE\Big\{ E\{ y\mid x_1,\dots,x_p,T(x_1,\dots,x_p) \} \Big\}
-$$
 
 :::
+
+## PATH Statement
+::: {layout-ncol=2}
+
+![](figures/path.png)
+
+![](figures/path_ene.png)
+:::
+
 
 # Framework
 
@@ -88,14 +92,6 @@ https://doi.org/10.1038/s41746-023-00794-y*
 
 :::
 
-:::
-
-## Framework - PATH Statement
-::: {layout-ncol=2}
-
-![](figures/path.png)
-
-![](figures/path_ene.png)
 :::
 
 ## Framework - OMOP
@@ -256,6 +252,16 @@ high-risk patients.
 - Not negligible hypokalemia and hyponatremia risk increase with THZ across all
 risk groups.
 - Cough risk increase with ACE inhibitors.
+
+
+## Framework - Limitations
+
+\
+
+- Separate database-specific prediction models
+- Did not account for competing risks
+- Did not correct for multiplicity
+- Only used databases readily available to us
 
 ## Framework - Links
 
@@ -506,6 +512,17 @@ does not improve benefit prediction
 - Using AIC for model selection is attractive with larger sample size
 
 :::
+
+
+## Simulation study - Limitations
+
+\
+
+- True benefit function of baseline risk
+- Statistically independent covariates
+- Linear effects of continuous covariates
+- No covariate interactions
+
 
 ## Simulation study - Links
 

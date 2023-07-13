@@ -355,7 +355,7 @@ Alexandros Rekkas
 <section id="predictive-approaches-to-hte" class="slide level2">
 <h2>Predictive approaches to HTE</h2>
 <div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Treatment effect modeling</a></li><li><a href="#tabset-1-2">Risk-based</a></li><li><a href="#tabset-1-3">OTR</a></li></ul>
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Treatment effect modeling</a></li><li><a href="#tabset-1-2">Risk modeling</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1">
 <p><span class="math display">\[
@@ -375,10 +375,18 @@ P(y = 1|x_1,\dots,x_p,T) = &amp;f\big(\beta_0+\beta_1x_1+\dots+\beta_px_p+ \\
 E\{y|x_1,\dots,x_p,T\} = f(lp(x_1,\dots,x_p), T)
 \]</span> For example, <span class="math display">\[lp(x_1,\dots,x_p) = \beta_0+\beta_1x_1+\dots+\beta_px_p\]</span> and <span class="math display">\[P(y = 1|x_1,\dots,x_p,T=0) = f(lp) = \frac{e^{lp}}{1 + e^{lp}}\]</span></p>
 </div>
-<div id="tabset-1-3">
-<p><span class="math display">\[
-T_{\text{optimal}} = \text{argmax}_TE\Big\{ E\{ y\mid x_1,\dots,x_p,T(x_1,\dots,x_p) \} \Big\}
-\]</span></p>
+</div>
+</div>
+</section>
+<section id="path-statement" class="slide level2">
+<h2>PATH Statement</h2>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="figures/path.png"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img data-src="figures/path_ene.png"></p>
 </div>
 </div>
 </div>
@@ -396,19 +404,6 @@ T_{\text{optimal}} = \text{argmax}_TE\Big\{ E\{ y\mid x_1,\dots,x_p,T(x_1,\dots,
 <p><em>Rekkas, A., van Klaveren, D., Ryan, P.B. et al.&nbsp;A standardized framework for risk-based assessment of treatment effect heterogeneity in observational healthcare databases. npj Digit. Med. 6, 58 (2023). https://doi.org/10.1038/s41746-023-00794-y</em></p>
 </div>
 </div></aside></section>
-<section id="framework---path-statement" class="slide level2">
-<h2>Framework - PATH Statement</h2>
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="figures/path.png"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img data-src="figures/path_ene.png"></p>
-</div>
-</div>
-</div>
-</section>
 <section id="framework---omop" class="slide level2">
 <h2>Framework - OMOP</h2>
 
@@ -570,6 +565,17 @@ T_{\text{optimal}} = \text{argmax}_TE\Big\{ E\{ y\mid x_1,\dots,x_p,T(x_1,\dots,
 <li>Negligible absolute benefits with THZ in low-risk patients.</li>
 <li>Not negligible hypokalemia and hyponatremia risk increase with THZ across all risk groups.</li>
 <li>Cough risk increase with ACE inhibitors.</li>
+</ul>
+</section>
+<section id="framework---limitations" class="slide level2">
+<h2>Framework - Limitations</h2>
+<p><br>
+</p>
+<ul>
+<li>Separate database-specific prediction models</li>
+<li>Did not account for competing risks</li>
+<li>Did not correct for multiplicity</li>
+<li>Only used databases readily available to us</li>
 </ul>
 </section>
 <section id="framework---links" class="slide level2">
@@ -766,6 +772,17 @@ P(Y(1)=1|X=x) = \text{expit}(lp_1) + \text{harm}
 <li>Using AIC for model selection is attractive with larger sample size</li>
 </ul>
 </div>
+</section>
+<section id="simulation-study---limitations" class="slide level2">
+<h2>Simulation study - Limitations</h2>
+<p><br>
+</p>
+<ul>
+<li>True benefit function of baseline risk</li>
+<li>Statistically independent covariates</li>
+<li>Linear effects of continuous covariates</li>
+<li>No covariate interactions</li>
+</ul>
 </section>
 <section id="simulation-study---links" class="slide level2">
 <h2>Simulation study - Links</h2>
