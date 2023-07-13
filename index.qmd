@@ -205,6 +205,8 @@ Medicare supplemental coverage through employer-sponsored plans.
 
 ## Interpretation
 
+\
+
 - Overall benefits with THZ for the prevention of acute MI were mainly driven by
 high-risk patients.
 - Negligible absolute benefits with THZ in low-risk patients.
@@ -215,6 +217,163 @@ risk groups.
 
 ## Simulation study
 
+\
+
+> **Aim**: Compare different risk-based models for the prediction of
+> individualized treatment effects.
+
+\
+
+We observe RCT data $(Z, X, Y)$, where for each patient $Z_i= 0, 1$ is the
+treatment status, $Y_i = 0, 1$ is the observed outcome and $X_i$ is a set of
+measured covariates. 
+
+## Simulation study
+
+\
+
+Let $\{Y_i(z), z=0, 1\}$ denote the unobservable potential
+outcomes.
+
+\
+
+We observe $Y_i = Z_iY_i(1) + (1 - Z_i)Y_i(0)$.
+
+\
+
+We are interested in
+predicting the conditional average treatment effect (CATE), 
+$$\tau(x) = E\{Y(0) - Y(1)|X=x\}$$ 
+
+
+## Simulation study
+
+$$
+\newcommand{\indep}{\perp \!\!\! \perp}
+\newcommand\given[1][]{\:#1\vert\:}
+$$
+
+
+
+Assuming that $\big(Y(0), Y(1)\big)\indep Z|X$, as we are in the RCT setting, we
+can predict CATE from
+\begin{align*}
+\tau(x) &= E\{Y(0)\given X=x\}-E\{Y(1)\given X=x\}\\
+&=E\{Y\given X=x, Z=0\}-E\{Y\given X=x, Z=1\}
+\end{align*}
+
+## Simulation study - Scenarios
+
+\
+
+For each patient we generated 8 baseline
+covariates $x_1,\dots,x_4\sim N(0, 1)$ and $x_5,\dots,x_8\sim
+B(1,0.2)$.
+
+\
+
+Outcomes in the control arm were generated using
+
+$$P(Y(0)=1\given X=x) = \text{expit}(lp_0) = e^{lp_0}/(1+e^{lp_0})$$
+
+with $lp_0=lp_0(x)=x^t\beta$.
+
+## Simulation study - Scenarios
+
+\
+
+Outcomes in the treatment arm were first generated using 3 simple scenarios for
+constant relative treatment effect:
+
+
+- absent (OR = 1)
+- moderate (OR = 0.8)
+- strong (OR = 0.5)
+
+## Simulation study - Scenarios
+
+\
+
+We introduced linear, quadratic and non-monotonic deviations
+
+$$lp_1 = \gamma_2(lp_0-c)^2 +
+\gamma_1(lp_0-c) + \gamma_0, $$ where $lp_1$ is the true linear predictor in the
+treatment arm, so that $P(Y(1)=1\given X=x) = \text{expit}(lp_1)$
+
+
+## Simulation study - Scenarios
+
+\
+
+Introduced treatment-related harms (absent, moderate, strong, positive) such that
+
+$$
+P(Y(1)=1|X=x) = \text{expit}(lp_1) + \text{harm}
+$$
+
+\
+
+Combining all the settings we ended up with a total of 648 simulation scenarios:
+
+:::{style="font-size: 53%;"}
+
+$$
+3 \text{ base scenarios }\times 3 \text{ baseline risk settings } \times 3 \text{ sample size settings} \times 6 \text{ true interaction settings} \times 4 \text{ harm settings }
+$$
+
+:::
+
+
+## Simulation study - Application
+
+\
+
+*GUSTO-I trial*
+
+- 30,510 patients with acute myocardial infarction
+- 10,348 patients randomized to tissue plasminogen activator (tPA) treatment
+- 20,162 patients randomized to streptokinase
+- outcome of interest: 30-day mortality (total of 2,128 events)
+
+
+## Simulation study - Methods
+
+\
+
+*Constant relative treatment effect*
+
+$$P(Y=1 | X=x, Z=z;\hat{\beta}) = \text{expit}(\hat{lp}_0 + \delta_1z)$$
+
+\
+
+absolute benefit is predicted from 
+$$\tau(x;\hat{\beta}) = \text{expit}(\hat{lp}_0)-\text{expit}(\hat{lp}_0+\delta_1)$$
+
+
+## Simulation study - Methods
+
+\
+
+*Linear interaction*
+
+$$P(Y=1|X=x,Z=z;\hat{\beta})=\text{expit}(\delta_0+\delta_1z+\delta_2\hat{lp}_0+\delta_3z\hat{lp}_0)$$
+\
+
+Absolute benefit predicted from
+$$\tau(x;\hat{\beta}) = \text{expit}(\delta_0+\delta_2\hat{lp}_0)-\text{expit}\Big((\delta_0+\delta_1)+(\delta_2+\delta_3)\hat{lp}_0\Big)$$
+
+
+## Simulation study - Methods
+
+\
+
+*Restricted cubic splines*
+to relax the linearity assumption on the effect of the linear predictor. We
+considered splines with 3 (RCS-3), 4 (RCS-4) and 5 (RCS-5) knots
+
+\
+
+*Adaptive approach* using AIC
 
 
 ## Simulation study - Results
@@ -233,4 +392,59 @@ risk groups.
 
 ### Application
 ![](figures/gusto.png){width=59%}
+
+
+:::
+
+## Simulation study - Adaptive
+
+:::{.panel-tabset}
+
+### Base case
+
+![](figures/selection_base.png){width=71%}
+
+### Sample size
+
+![](figures/selection_sample_size.png){width=71%}
+
+
+### AUC
+
+![](figures/selection_auc.png){width=71%}
+
+:::
+
+
+## Simulation study - Conclusions
+
+\
+
+:::{style="font-size: 81%;"}
+
+- The linear interaction approach is a viable option with moderate sample sizes
+and / or  moderately performing risk prediction models
+- RCS-3 is preferable with abundant sample size
+- Increasing the complexity of the RCS models by increasing the number of knots
+does not improve benefit prediction
+- Using AIC for model selection is attractive with larger sample size
+
+:::
+
+## Simulation study - Links
+
+:::{style="font-size: 69%;"}
+
+\
+
+Publication: [https://doi.org/10.1186/s12874-023-01889-6](https://doi.org/10.1186/s12874-023-01889-6)
+
+\
+
+Results: [https://mi-erasmusmc.shinyapps.io/HteSimulationRCT](https://mi-erasmusmc.shinyapps.io/HteSimulationRCT)
+
+\
+
+Code: [https://github.com/mi-erasmusmc/HteSimulationRCT](https://github.com/mi-erasmusmc/HteSimulationRCT)
+
 :::

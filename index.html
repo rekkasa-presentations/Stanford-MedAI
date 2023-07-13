@@ -535,6 +535,8 @@ T_{\text{optimal}} = \text{argmax}_TE\Big\{ E\{ y\mid x_1,\dots,x_p,T(x_1,\dots,
 </section>
 <section id="interpretation" class="slide level2">
 <h2>Interpretation</h2>
+<p><br>
+</p>
 <ul>
 <li>Overall benefits with THZ for the prevention of acute MI were mainly driven by high-risk patients.</li>
 <li>Negligible absolute benefits with THZ in low-risk patients.</li>
@@ -544,6 +546,124 @@ T_{\text{optimal}} = \text{argmax}_TE\Big\{ E\{ y\mid x_1,\dots,x_p,T(x_1,\dots,
 </section>
 <section id="simulation-study" class="slide level2">
 <h2>Simulation study</h2>
+<p><br>
+</p>
+<blockquote>
+<p><strong>Aim</strong>: Compare different risk-based models for the prediction of individualized treatment effects.</p>
+</blockquote>
+<p><br>
+</p>
+<p>We observe RCT data <span class="math inline">\((Z, X, Y)\)</span>, where for each patient <span class="math inline">\(Z_i= 0, 1\)</span> is the treatment status, <span class="math inline">\(Y_i = 0, 1\)</span> is the observed outcome and <span class="math inline">\(X_i\)</span> is a set of measured covariates.</p>
+</section>
+<section id="simulation-study-1" class="slide level2">
+<h2>Simulation study</h2>
+<p><br>
+</p>
+<p>Let <span class="math inline">\(\{Y_i(z), z=0, 1\}\)</span> denote the unobservable potential outcomes.</p>
+<p><br>
+</p>
+<p>We observe <span class="math inline">\(Y_i = Z_iY_i(1) + (1 - Z_i)Y_i(0)\)</span>.</p>
+<p><br>
+</p>
+<p>We are interested in predicting the conditional average treatment effect (CATE), <span class="math display">\[\tau(x) = E\{Y(0) - Y(1)|X=x\}\]</span></p>
+</section>
+<section id="simulation-study-2" class="slide level2">
+<h2>Simulation study</h2>
+<p><span class="math display">\[
+\newcommand{\indep}{\perp \!\!\! \perp}
+\newcommand\given[1][]{\:#1\vert\:}
+\]</span></p>
+<p>Assuming that <span class="math inline">\(\big(Y(0), Y(1)\big)\indep Z|X\)</span>, as we are in the RCT setting, we can predict CATE from <span class="math display">\[\begin{align*}
+\tau(x) &amp;= E\{Y(0)\given X=x\}-E\{Y(1)\given X=x\}\\
+&amp;=E\{Y\given X=x, Z=0\}-E\{Y\given X=x, Z=1\}
+\end{align*}\]</span></p>
+</section>
+<section id="simulation-study---scenarios" class="slide level2">
+<h2>Simulation study - Scenarios</h2>
+<p><br>
+</p>
+<p>For each patient we generated 8 baseline covariates <span class="math inline">\(x_1,\dots,x_4\sim N(0, 1)\)</span> and <span class="math inline">\(x_5,\dots,x_8\sim B(1,0.2)\)</span>.</p>
+<p><br>
+</p>
+<p>Outcomes in the control arm were generated using</p>
+<p><span class="math display">\[P(Y(0)=1\given X=x) = \text{expit}(lp_0) = e^{lp_0}/(1+e^{lp_0})\]</span></p>
+<p>with <span class="math inline">\(lp_0=lp_0(x)=x^t\beta\)</span>.</p>
+</section>
+<section id="simulation-study---scenarios-1" class="slide level2">
+<h2>Simulation study - Scenarios</h2>
+<p><br>
+</p>
+<p>Outcomes in the treatment arm were first generated using 3 simple scenarios for constant relative treatment effect:</p>
+<ul>
+<li>absent (OR = 1)</li>
+<li>moderate (OR = 0.8)</li>
+<li>strong (OR = 0.5)</li>
+</ul>
+</section>
+<section id="simulation-study---scenarios-2" class="slide level2">
+<h2>Simulation study - Scenarios</h2>
+<p><br>
+</p>
+<p>We introduced linear, quadratic and non-monotonic deviations</p>
+<p><span class="math display">\[lp_1 = \gamma_2(lp_0-c)^2 +
+\gamma_1(lp_0-c) + \gamma_0, \]</span> where <span class="math inline">\(lp_1\)</span> is the true linear predictor in the treatment arm, so that <span class="math inline">\(P(Y(1)=1\given X=x) = \text{expit}(lp_1)\)</span></p>
+</section>
+<section id="simulation-study---scenarios-3" class="slide level2">
+<h2>Simulation study - Scenarios</h2>
+<p><br>
+</p>
+<p>Introduced treatment-related harms (absent, moderate, strong, positive) such that</p>
+<p><span class="math display">\[
+P(Y(1)=1|X=x) = \text{expit}(lp_1) + \text{harm}
+\]</span></p>
+<p><br>
+</p>
+<p>Combining all the settings we ended up with a total of 648 simulation scenarios:</p>
+<div style="font-size: 53%;">
+<p><span class="math display">\[
+3 \text{ base scenarios }\times 3 \text{ baseline risk settings } \times 3 \text{ sample size settings} \times 6 \text{ true interaction settings} \times 4 \text{ harm settings }
+\]</span></p>
+</div>
+</section>
+<section id="simulation-study---application" class="slide level2">
+<h2>Simulation study - Application</h2>
+<p><br>
+</p>
+<p><em>GUSTO-I trial</em></p>
+<ul>
+<li>30,510 patients with acute myocardial infarction</li>
+<li>10,348 patients randomized to tissue plasminogen activator (tPA) treatment</li>
+<li>20,162 patients randomized to streptokinase</li>
+<li>outcome of interest: 30-day mortality (total of 2,128 events)</li>
+</ul>
+</section>
+<section id="simulation-study---methods" class="slide level2">
+<h2>Simulation study - Methods</h2>
+<p><br>
+</p>
+<p><em>Constant relative treatment effect</em></p>
+<p><span class="math display">\[P(Y=1 | X=x, Z=z;\hat{\beta}) = \text{expit}(\hat{lp}_0 + \delta_1z)\]</span></p>
+<p><br>
+</p>
+<p>absolute benefit is predicted from <span class="math display">\[\tau(x;\hat{\beta}) = \text{expit}(\hat{lp}_0)-\text{expit}(\hat{lp}_0+\delta_1)\]</span></p>
+</section>
+<section id="simulation-study---methods-1" class="slide level2">
+<h2>Simulation study - Methods</h2>
+<p><br>
+</p>
+<p><em>Linear interaction</em></p>
+<p><span class="math display">\[P(Y=1|X=x,Z=z;\hat{\beta})=\text{expit}(\delta_0+\delta_1z+\delta_2\hat{lp}_0+\delta_3z\hat{lp}_0)\]</span><br>
+</p>
+<p>Absolute benefit predicted from <span class="math display">\[\tau(x;\hat{\beta}) = \text{expit}(\delta_0+\delta_2\hat{lp}_0)-\text{expit}\Big((\delta_0+\delta_1)+(\delta_2+\delta_3)\hat{lp}_0\Big)\]</span></p>
+</section>
+<section id="simulation-study---methods-2" class="slide level2">
+<h2>Simulation study - Methods</h2>
+<p><br>
+</p>
+<p><em>Restricted cubic splines</em> to relax the linearity assumption on the effect of the linear predictor. We considered splines with 3 (RCS-3), 4 (RCS-4) and 5 (RCS-5) knots</p>
+<p><br>
+</p>
+<p><em>Adaptive approach</em> using AIC</p>
 </section>
 <section id="simulation-study---results" class="slide level2">
 <h2>Simulation study - Results</h2>
@@ -564,8 +684,52 @@ T_{\text{optimal}} = \text{argmax}_TE\Big\{ E\{ y\mid x_1,\dots,x_p,T(x_1,\dots,
 </div>
 </div>
 </div>
-<p><img src="figures/hds-emc.png" class="slide-logo"></p>
-<div class="footer footer-default">
+</section>
+<section id="simulation-study---adaptive" class="slide level2">
+<h2>Simulation study - Adaptive</h2>
+<div class="panel-tabset">
+<ul id="tabset-6" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-6-1">Base case</a></li><li><a href="#tabset-6-2">Sample size</a></li><li><a href="#tabset-6-3">AUC</a></li></ul>
+<div class="tab-content">
+<div id="tabset-6-1">
+<p><img data-src="figures/selection_base.png" style="width:71.0%"></p>
+</div>
+<div id="tabset-6-2">
+<p><img data-src="figures/selection_sample_size.png" style="width:71.0%"></p>
+</div>
+<div id="tabset-6-3">
+<p><img data-src="figures/selection_auc.png" style="width:71.0%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="simulation-study---conclusions" class="slide level2">
+<h2>Simulation study - Conclusions</h2>
+<p><br>
+</p>
+<div style="font-size: 81%;">
+<ul>
+<li>The linear interaction approach is a viable option with moderate sample sizes and / or moderately performing risk prediction models</li>
+<li>RCS-3 is preferable with abundant sample size</li>
+<li>Increasing the complexity of the RCS models by increasing the number of knots does not improve benefit prediction</li>
+<li>Using AIC for model selection is attractive with larger sample size</li>
+</ul>
+</div>
+</section>
+<section id="simulation-study---links" class="slide level2">
+<h2>Simulation study - Links</h2>
+<div style="font-size: 69%;">
+<p><br>
+</p>
+<p>Publication: <a href="https://doi.org/10.1186/s12874-023-01889-6">https://doi.org/10.1186/s12874-023-01889-6</a></p>
+<p><br>
+</p>
+<p>Results: <a href="https://mi-erasmusmc.shinyapps.io/HteSimulationRCT">https://mi-erasmusmc.shinyapps.io/HteSimulationRCT</a></p>
+<p><br>
+</p>
+<p>Code: <a href="https://github.com/mi-erasmusmc/HteSimulationRCT">https://github.com/mi-erasmusmc/HteSimulationRCT</a></p>
+</div>
+
+<img src="figures/hds-emc.png" class="slide-logo r-stretch"><div class="footer footer-default">
 
 </div>
 </section>
